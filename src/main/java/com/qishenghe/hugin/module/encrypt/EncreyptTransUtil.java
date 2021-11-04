@@ -2,6 +2,8 @@ package com.qishenghe.hugin.module.encrypt;
 
 import com.qishenghe.hugin.module.formwork.TransUtil;
 
+import java.util.List;
+
 /**
  * 加密转换工具
  *
@@ -12,5 +14,13 @@ import com.qishenghe.hugin.module.formwork.TransUtil;
 public class EncreyptTransUtil implements TransUtil {
 
 
+    @Override
+    public <T> void trans(T data) {
 
+    }
+
+    @Override
+    public <T> void trans(List<T> data) {
+
+    }
 }
