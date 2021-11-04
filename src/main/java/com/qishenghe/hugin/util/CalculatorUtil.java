@@ -278,6 +278,7 @@ public class CalculatorUtil {
             case '/':
                 result = String.valueOf(ArithUtil.div(firstValue, secondValue));
                 break;
+            default:
         }
         return result;
     }
