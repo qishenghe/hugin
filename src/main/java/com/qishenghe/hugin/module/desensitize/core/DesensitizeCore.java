@@ -1,5 +1,10 @@
 package com.qishenghe.hugin.module.desensitize.core;
 
+import com.qishenghe.hugin.util.CalculatorUtil;
+import com.qishenghe.hugin.util.PlaceholderResolver;
+
+import java.util.Properties;
+
 /**
  * 脱敏核心
  *
@@ -21,7 +26,7 @@ public class DesensitizeCore {
      * @param indexArr 下标数组
      * @return 脱敏结果
      */
-    public String desensitizeStr(String string, int... indexArr) {
+    public static String desensitizeStr(String string, int... indexArr) {
 
         if (indexArr.length < 2 || indexArr.length % 2 == 1) {
             // 脱敏位下标集不符合标准，跳过执行
