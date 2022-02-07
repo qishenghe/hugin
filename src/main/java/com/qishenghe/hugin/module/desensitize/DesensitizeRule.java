@@ -12,8 +12,8 @@ import lombok.EqualsAndHashCode;
  * @date 11/4/21 11:01 AM
  * @change 11/4/21 11:01 AM by shenghe.qi@relxtech.com for init
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class DesensitizeRule extends Rule {
 
     /**
@@ -45,22 +45,12 @@ public class DesensitizeRule extends Rule {
     }
 
     /**
-     * 转换为Json字符串
-     *
-     * @return json
-     */
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
-
-    /**
      * 根据Json字符串获取对象实例
      *
      * @param json json
      * @return 对象实例
      */
-    public static DesensitizeRule byString(String json) {
+    public static DesensitizeRule byJson(String json) {
         return JSON.parseObject(json, DesensitizeRule.class);
     }
 

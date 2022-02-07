@@ -2,6 +2,7 @@ package com.qishenghe.hugin;
 
 import com.qishenghe.hugin.module.desensitize.DesensitizeCtrlUtil;
 import com.qishenghe.hugin.module.desensitize.DesensitizeRule;
+import com.qishenghe.hugin.module.formwork.Rule;
 
 /**
  *
@@ -13,6 +14,8 @@ import com.qishenghe.hugin.module.desensitize.DesensitizeRule;
 public class Test {
 
     public static void main(String[] args) {
+
+        Rule rule = null;
 
         long timeStamp1 = System.currentTimeMillis();
         for (int i = 0; i < 1_000_000; i ++) {
