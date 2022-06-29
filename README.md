@@ -55,7 +55,7 @@
    
    &emsp;&emsp;artifactId : hugin
    
-   （comming soon）
+   &emsp;&emsp;version : （comming soon）
 
 * **开发文档**
 
