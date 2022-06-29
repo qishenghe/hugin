@@ -1,10 +1,5 @@
 package com.qishenghe.hugin.module.desensitize.core;
 
-import com.qishenghe.hugin.util.CalculatorUtil;
-import com.qishenghe.hugin.util.PlaceholderResolver;
-
-import java.util.Properties;
-
 /**
  * 脱敏核心
  *

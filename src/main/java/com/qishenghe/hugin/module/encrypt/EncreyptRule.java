@@ -1,6 +1,6 @@
 package com.qishenghe.hugin.module.encrypt;
 
-import com.qishenghe.hugin.module.formwork.Rule;
+import com.qishenghe.hugin.core.rule.Rule;
 
 /**
  * 加密规则
