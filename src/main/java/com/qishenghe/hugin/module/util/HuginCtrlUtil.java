@@ -1,6 +1,5 @@
 package com.qishenghe.hugin.module.util;
 
-import com.qishenghe.hugin.core.rule.CustomRule;
 import com.qishenghe.hugin.core.rule.Rule;
 import com.qishenghe.hugin.session.HuginSession;
 import lombok.Data;
@@ -31,15 +30,9 @@ public class HuginCtrlUtil {
      * @date 11/4/21 1:48 PM
      * @change 11/4/21 1:48 PM by shenghe.qi@relxtech.com for init
      */
-    public Object turn (Rule rule, Object object) {
+    public Object turn (Rule rule, Object object, String... params) {
 
-        Object result = object;
-
-        if (rule instanceof CustomRule) {
-            result = ((CustomRule) rule).apply(object);
-        }
-
-        return result;
+        return rule.getHuginFunction().trans(object, params);
     }
 
 }

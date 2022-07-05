@@ -1,6 +1,7 @@
 package com.qishenghe.hugin.session;
 
 import com.qishenghe.hugin.banner.HuginBannerPrinter;
+import com.qishenghe.hugin.core.pack.HuginRulePresetPack;
 import com.qishenghe.hugin.module.util.HuginCtrlUtil;
 import com.qishenghe.hugin.core.pack.HuginRulePack;
 import com.qishenghe.hugin.module.util.HuginTransUtil;
@@ -125,6 +126,12 @@ public class HuginSession {
             HuginBannerPrinter.printBanner();
 
             HuginSession huginSession = new HuginSession();
+
+            if (this.huginRulePack == null) {
+                this.huginRulePack = new HuginRulePack();
+            }
+
+            huginRulePack.getRulePack().putAll(HuginRulePresetPack.rulePack);
 
             huginSession.setHuginRulePack(this.huginRulePack);
 

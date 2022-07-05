@@ -20,6 +20,11 @@ public @interface HuginPoint {
     String ruleCode();
 
     /**
+     * 参数
+     */
+    String[] param() default {};
+
+    /**
      * 转换前内容放置位置（null：默认不保存原code内容）
      */
     String beforeTransCopyTo() default "";

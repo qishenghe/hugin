@@ -2,6 +2,7 @@ package com.qishenghe.hugin.module.util;
 
 import com.qishenghe.hugin.core.point.HuginPoint;
 import com.qishenghe.hugin.core.rule.Rule;
+import com.qishenghe.hugin.core.rule.RulePoint;
 import com.qishenghe.hugin.session.HuginSession;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -66,7 +67,7 @@ public class HuginTransUtil {
      * @date 2/7/22 4:58 PM
      * @change 2/7/22 4:58 PM by shenghe.qi@relxtech.com for init
      */
-    public <T> void trans(List<T> resultList, Map<String, Rule> ruleMap) {
+    public <T> void trans(List<T> resultList, Map<String, RulePoint> ruleMap) {
         for (T single : resultList) {
             trans(single, ruleMap);
         }
@@ -82,7 +83,7 @@ public class HuginTransUtil {
      * @date 2/7/22 4:59 PM
      * @change 2/7/22 4:59 PM by shenghe.qi@relxtech.com for init
      */
-    public <T> void trans(T result, Map<String, Rule> ruleMap) {
+    public <T> void trans(T result, Map<String, RulePoint> ruleMap) {
 
         // 判空
         if (result == null) {
@@ -100,9 +101,11 @@ public class HuginTransUtil {
             Field field = fieldMap.get(fieldName);
             // rule
             Rule rule = null;
+            String[] params = null;
             if (ruleMap.containsKey(fieldName)) {
                 // 指向Map中存在该属性
-                rule = ruleMap.get(fieldName);
+                rule = ruleMap.get(fieldName).getRule();
+                params = ruleMap.get(fieldName).getParams();
             } else {
                 // 指向Map中不存在
                 if (field.isAnnotationPresent(HuginPoint.class)) {
@@ -110,6 +113,7 @@ public class HuginTransUtil {
 
                     rule = this.getHuginSession().getHuginRulePack().getRulePack().get(huginPoint.ruleCode());
 
+                    params = huginPoint.param();
                 }
             }
 
@@ -121,7 +125,7 @@ public class HuginTransUtil {
                     Object origin = field.get(result);
                     if (origin != null) {
                         // 获取转换后的值
-                        Object overTurn = huginSession.getHuginCtrlUtil().turn(rule, origin);
+                        Object overTurn = huginSession.getHuginCtrlUtil().turn(rule, origin, params);
                         if (field.isAnnotationPresent(HuginPoint.class)) {
 
                             String beforeTransCopyTo = field.getAnnotation(HuginPoint.class).beforeTransCopyTo();

@@ -1,13 +1,13 @@
 package com.qishenghe.hugin.demo;
 
+import com.qishenghe.hugin.core.api.HuginFunction;
 import com.qishenghe.hugin.core.pack.HuginRulePack;
-import com.qishenghe.hugin.core.rule.CustomRule;
+import com.qishenghe.hugin.core.rule.Rule;
 import com.qishenghe.hugin.session.HuginSession;
 import com.qishenghe.hugin.util.DesensitizeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 /**
  *
@@ -44,12 +44,8 @@ public class HuginDemo {
 
 
         HuginRulePack rulePack = new HuginRulePack();
-        // 脱敏人名
-        rulePack.addRule("desPersonName", CustomRule.getInstance(getDesPersonName()));
-        // 脱敏手机号
-        rulePack.addRule("desMobilePhone", CustomRule.getInstance(getDesMobilePhone()));
         // 将年龄转换为虚岁
-        rulePack.addRule("transAge", CustomRule.getInstance(transAge()));
+        rulePack.addRule("transAge", Rule.getInstance(transAge()));
 
         // 创建 Hugin session
         HuginSession huginSession = HuginSession.builder()
@@ -81,8 +77,8 @@ public class HuginDemo {
      * @date 6/29/22 11:35 AM
      * @change 6/29/22 11:35 AM by shenghe.qi@relxtech.com for init
      */
-    private static Function<String, String> getDesPersonName () {
-        return s -> DesensitizeUtil.turn(s, "1", "${length}");
+    private static HuginFunction getDesPersonName () {
+        return (HuginFunction<String, String>) (origin, params) -> DesensitizeUtil.turn(origin, "1", "${length}");
     }
 
     /**
@@ -93,8 +89,8 @@ public class HuginDemo {
      * @date 6/29/22 11:52 AM
      * @change 6/29/22 11:52 AM by shenghe.qi@relxtech.com for init
      */
-    private static Function<String, String> getDesMobilePhone () {
-        return s -> DesensitizeUtil.turn(s, "3", "7");
+    private static HuginFunction getDesMobilePhone () {
+        return (HuginFunction<String, String>) (origin, params) -> DesensitizeUtil.turn(origin, "3", "7");
     }
 
     /**
@@ -105,8 +101,8 @@ public class HuginDemo {
      * @date 6/29/22 11:54 AM
      * @change 6/29/22 11:54 AM by shenghe.qi@relxtech.com for init
      */
-    private static Function<Integer, Integer> transAge () {
-        return age -> age + 1;
+    private static HuginFunction transAge () {
+        return (HuginFunction<Integer, Integer>) (origin, params) -> origin + 1;
     }
 
 }
