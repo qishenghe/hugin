@@ -29,6 +29,19 @@
    private String name;
    ```
 
+* **内置预设处理工具**
+   
+   内置方便快捷的处理功能，包括但不限于脱敏，加密等场景
+   ```
+   /**
+     * 姓名
+     * 说明：示例脱敏规则：自第 1 位起至第 字符串最大长度 位止，进行脱敏处理
+     * 例：齐老二 转换为 齐**
+     */
+    @HuginPoint(ruleCode = HuginPresetRule.DESENSITIZE, param = {"1", "${length}"})
+    private String name;
+    ```
+
 * **开放的可插拔与无限的可能**
 
    完全自定义的处理逻辑，能玩出什么花样完全看你的想象力
