@@ -72,8 +72,10 @@
 
 * **开发文档**
 
-   wiki主页：[Welcome to Hugin wiki home](https://github.com/qishenghe/hugin/wiki)
-
+   wiki主页（建设中，可参考demo项目）：[Welcome to Hugin wiki home](https://github.com/qishenghe/hugin/wiki)
+   
+   hugin-demo：[A demo of Hugin](https://github.com/qishenghe/hugin-demo)
+   
 ## 加入我们
 
 * **钉钉**
