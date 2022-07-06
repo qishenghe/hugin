@@ -6,7 +6,7 @@
 
     <groupId>com.github.qishenghe</groupId>
     <artifactId>hugin</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>hugin</name>
     <description>Twins project of Munin, Focus on local data processing</description>
     <url>https://github.com/qishenghe/hugin.git</url>
