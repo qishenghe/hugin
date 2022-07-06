@@ -55,7 +55,7 @@
    
    &emsp;&emsp;artifactId : hugin
    
-   &emsp;&emsp;version : （comming soon）
+   &emsp;&emsp;version : 1.0.1
 
 * **开发文档**
 
@@ -65,7 +65,6 @@
 
 * **钉钉**
 
-（QR code on the way）
 <div  align="center">
 <img src="doc/munin_dingding_code.png" width="30%" syt height="30%" style="zoom:30%"/>
 </div>
