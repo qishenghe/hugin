@@ -125,18 +125,23 @@ public class HuginSession {
             // 打印Banner
             HuginBannerPrinter.printBanner();
 
+            // 声明session
             HuginSession huginSession = new HuginSession();
+            // 声明pack
+            HuginRulePack huginRulePack = new HuginRulePack();
 
-            if (this.huginRulePack == null) {
-                this.huginRulePack = new HuginRulePack();
+            // 加载预设处理规则
+            huginRulePack.getRulePack().putAll(HuginRulePresetPack.rulePack);
+            // 加载用户自定义处理规则
+            if (this.huginRulePack != null) {
+                huginRulePack.getRulePack().putAll(this.huginRulePack.getRulePack());
             }
 
-            huginRulePack.getRulePack().putAll(HuginRulePresetPack.rulePack);
-
+            // set 规则容器
             huginSession.setHuginRulePack(this.huginRulePack);
-
+            // set 控制工具
             huginSession.setHuginCtrlUtil(createHuginCtrlUtil(huginSession));
-
+            // set 转换工具
             huginSession.setHuginTransUtil(createHuginTransUtil(huginSession));
 
             return huginSession;

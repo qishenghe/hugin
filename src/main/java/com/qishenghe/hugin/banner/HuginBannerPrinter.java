@@ -14,7 +14,12 @@ public class HuginBannerPrinter {
     /**
      * BANNER_HEAD
      */
-    private static final String BANNER_HEAD = "Hugin Banner";
+    private static final String BANNER_HEAD = "    __  __            _     \n" +
+            "   / / / /_  ______ _(_)___ \n" +
+            "  / /_/ / / / / __ `/ / __ \\\n" +
+            " / __  / /_/ / /_/ / / / / /\n" +
+            "/_/ /_/\\__,_/\\__, /_/_/ /_/ \n" +
+            "            /____/          ";
 
     /**
      * BANNER_NAME
@@ -22,17 +27,26 @@ public class HuginBannerPrinter {
     private static final String BANNER_NAME = ":: Hugin ::";
 
     /**
+     * over print
+     */
+    private static boolean overPrint = false;
+
+    /**
      * Banner printer
      */
     public static void printBanner () {
 
-        String version = HuginVersion.getVersion();
+        if (!overPrint) {
+            String version = HuginVersion.getVersion();
 
-        System.out.println(BANNER_HEAD);
+            System.out.println(BANNER_HEAD);
 
-        System.out.print("\u001B[36m" + BANNER_NAME + "\u001B[0;39m");
-        System.out.print("\t\t");
-        System.out.println("\u001B[33m" + "(v" + version + ")" + "\u001B[0;39m");
+            System.out.print("\u001B[36m" + BANNER_NAME + "\u001B[0;39m");
+            System.out.print("\t\t");
+            System.out.println("\u001B[33m" + "(v" + version + ")" + "\u001B[0;39m");
+
+            overPrint = true;
+        }
 
     }
 
